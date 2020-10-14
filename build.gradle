@@ -12,14 +12,12 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.5.9'
-
-    implementation 'org.meadowhawk:IdenticonGenerator:1.1.0'
-    implementation 'org.whispersystems:signal-protocol-java:2.8.1'
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.66'
     implementation 'commons-io:commons-io:2.6'
     implementation 'log4j:log4j:1.2.17'
 
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
+    implementation 'org.tomlj:tomlj:1.0.0'
 
     implementation 'net.logstash.logback:logstash-logback-encoder:5.2'
     implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.30'
