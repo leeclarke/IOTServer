@@ -10,15 +10,21 @@ import java.nio.file.Paths
 
 class SqlLiteServiceSpec extends Specification{
 
+    static final String  tempDbPath = './src/test/resources/temp.db'
+
     @Shared
-//    def tomlFile = new File('./src/test/resources/test.toml')
     Path source = Paths.get('./src/test/resources/test.toml')
+
+    def cleanup(){
+        File dbFile = new File(tempDbPath)
+        dbFile.delete()
+    }
 
     def "If no db exists set up the Things DB"(){
         given:
 
         TomlParseResult config = Toml.parse(source)
-        def dbPath = './src/test/resources/temp.db'
+
         SqlLiteService sqlliteService = new SqlLiteService(config)
 
         when:
@@ -35,8 +41,5 @@ class SqlLiteServiceSpec extends Specification{
         def dataTable = metadata.getTables(null, null, "THINGS_DATA", null)
         assert dataTable.next()
 
-
-        File dbFile = new File(dbPath)
-        dbFile.delete()
     }
 }
