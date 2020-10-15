@@ -1,10 +1,12 @@
 package org.meadowhawk.dto
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 import java.time.LocalDateTime
 
 @ToString
+@EqualsAndHashCode
 class IOTCompressedFormat {
     String id
     String value

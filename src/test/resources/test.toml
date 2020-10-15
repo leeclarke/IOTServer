@@ -1,2 +1,5 @@
 [server]
 ports = [4949,4040]
+
+[sql-lite]
+dbPath = "src/test/resources/temp.db"
