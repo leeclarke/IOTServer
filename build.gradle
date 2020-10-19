@@ -18,6 +18,8 @@ dependencies {
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.14'
     implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.32.3.2'
     implementation 'org.tomlj:tomlj:1.0.0'
+    implementation 'com.j256.ormlite:ormlite-jdbc:5.1'
+
 
     implementation 'net.logstash.logback:logstash-logback-encoder:5.2'
     implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.30'
