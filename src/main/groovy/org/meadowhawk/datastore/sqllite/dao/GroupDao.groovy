@@ -11,5 +11,4 @@ class GroupDao extends BaseDaoImpl<Group, Integer> {
         super(connectionSource, Group)
     }
 
-
 }

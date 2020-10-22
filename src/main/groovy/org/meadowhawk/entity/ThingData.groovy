@@ -7,7 +7,6 @@ import groovy.transform.ToString
 import org.meadowhawk.datastore.sqllite.dao.ThingDataDao
 
 import java.sql.Timestamp
-import java.time.LocalDateTime
 
 @ToString
 @EqualsAndHashCode

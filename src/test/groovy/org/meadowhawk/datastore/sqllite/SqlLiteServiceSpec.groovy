@@ -8,19 +8,13 @@ import org.meadowhawk.entity.Group
 import org.meadowhawk.entity.ThingData
 import org.tomlj.Toml
 import org.tomlj.TomlParseResult
-import spock.lang.Ignore
-import spock.lang.Shared
 import spock.lang.Specification
 
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.time.LocalDateTime
 
 class SqlLiteServiceSpec extends Specification{
-
     static final String  tempDbPath = './src/test/resources/temp.db'
-
-
     static Path source = Paths.get('./src/test/resources/test.toml')
     static SqlLiteService sqlliteService
 
@@ -29,7 +23,6 @@ class SqlLiteServiceSpec extends Specification{
         sqlliteService = new SqlLiteService(config)
     }
 
-
     def cleanupSpec(){
         File dbFile = new File(tempDbPath)
         dbFile.delete()
@@ -37,10 +30,8 @@ class SqlLiteServiceSpec extends Specification{
 
     def "Can add, select and update Groups"(){
         given: "We have a new group"
-
         def newGroup = new Group(name: "TestGroup" , description: "This is a test")
         GroupDao groupDao = new GroupDao(sqlliteService.connPool)
-
 
         when:
         groupDao.createOrUpdate(newGroup)
@@ -50,14 +41,12 @@ class SqlLiteServiceSpec extends Specification{
         qb.where().eq("name","TestGroup")
         def results = groupDao.queryRaw(qb.prepareStatementString())
         results.size() == 1
-
     }
 
     def "Can add, select and update Feeds"(){
         given: "We have a new feed"
         def newFeed = new Feed(name: "TestFeed" , description: "This is a test", key: "key")
         FeedDao feedDao = new FeedDao(sqlliteService.connPool)
-
 
         when:
         feedDao.createOrUpdate(newFeed)
@@ -67,7 +56,6 @@ class SqlLiteServiceSpec extends Specification{
         qb.where().eq("name","TestFeed")
         def results = feedDao.queryRaw(qb.prepareStatementString())
         results.size() == 1
-
     }
 
     def "Can add, select and update ThingData"(){
